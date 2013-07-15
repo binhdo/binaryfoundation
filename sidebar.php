@@ -10,11 +10,9 @@
  */
 
 if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
-	<div id="tertiary" class="sidebar-container" role="complementary">
-		<div class="sidebar-inner">
-			<div class="widget-area">
+<div id="tertiary" class="sidebar-container <?php echo binaryfoundation_tertiary_class(); ?>" role="complementary">
+	<ul class="widget-area  <?php echo binaryfoundation_tertiary_widget_class(); ?>">
 				<?php dynamic_sidebar( 'sidebar-2' ); ?>
-			</div><!-- .widget-area -->
-		</div><!-- .sidebar-inner -->
+			</ul><!-- .widget-area -->
 	</div><!-- #tertiary -->
 <?php endif; ?>

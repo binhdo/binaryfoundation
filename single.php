@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area <?php echo binaryfoundation_primary_class(); ?>">
 		<div id="content" class="site-content" role="main">
 
 			<?php /* The loop */ ?>

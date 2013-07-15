@@ -5,6 +5,7 @@
  */
 
 ( function( $ ) {
+	
 	var body    = $( 'body' ),
 	    _window = $( window );
 
@@ -78,4 +79,5 @@
 			isRTL: body.is( '.rtl' )
 		} );
 	}
+	$(document).foundation();
 } )( jQuery );
