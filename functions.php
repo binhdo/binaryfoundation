@@ -47,6 +47,11 @@ require_once locate_template('/inc/binaryfoundation-filters.php');
 require_once locate_template('/inc/binaryfoundation-walker-menu.php');
 
 /**
+ * Binary Foundation gallery shortcode
+ */
+require_once locate_template('/inc/binaryfoundation-gallery.php');
+
+/**
  * Adds support for a custom header image.
  */
 require_once locate_template('/inc/custom-header.php');
@@ -115,6 +120,9 @@ function binaryfoundation_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	//set_post_thumbnail_size( 604, 270, true );
+	
+	/* Binary Foundation gallery support */
+	add_theme_support( 'binaryfoundation-gallery' );
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
@@ -248,3 +256,15 @@ function binaryfoundation_customize_preview_js() {
 	wp_enqueue_script( 'binaryfoundation-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20130226', true );
 }
 add_action( 'customize_preview_init', 'binaryfoundation_customize_preview_js' );
+
+/**
+ * Replace [gallery] shortcode
+ * 
+ */
+function binaryfoundation_gallery_support() {		
+	if ( current_theme_supports( 'binaryfoundation-gallery' ) ) {
+		remove_shortcode( 'gallery' );
+		add_shortcode( 'gallery', 'binaryfoundation_gallery_shortcode' );
+	}
+}
+add_action( 'template_redirect', 'binaryfoundation_gallery_support' );
