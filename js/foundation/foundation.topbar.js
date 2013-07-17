@@ -10,7 +10,7 @@
 
     settings : {
       index : 0,
-      stickyClass : 'sticky',
+      stickyClass : 'sticky-top',
       custom_back_text: true,
       back_text: 'Back',
       is_hover: true,
