@@ -52,11 +52,6 @@ require_once locate_template('/inc/binaryfoundation-walker-menu.php');
 require_once locate_template('/inc/binaryfoundation-gallery.php');
 
 /**
- * Adds support for a custom header image.
- */
-require_once locate_template('/inc/custom-header.php');
-
-/**
  * Binary Foundation only works in WordPress 3.6 or later.
  */
 if ( version_compare( $GLOBALS['wp_version'], '3.6-alpha', '<' ) )
@@ -242,7 +237,6 @@ add_action( 'template_redirect', 'binaryfoundation_content_width' );
 function binaryfoundation_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
 add_action( 'customize_register', 'binaryfoundation_customize_register' );
 
